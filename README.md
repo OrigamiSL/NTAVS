@@ -16,7 +16,7 @@ This work contains two versions, i.e., NTAVS-PVT and NTAVS-R50, which employ two
 ```
 sh ./creat_symbolic_link.sh
 ```
-You can choose both or one of them to train and test. Take the NTAVS-PVT as example, you should firstly run the command:
+You can choose both or one of them to train and test. Take the NTAVS-PVT as an example, you should firstly run the command:
 ```
 cd ./NTAVS_PVT
 ```
@@ -137,7 +137,7 @@ python3 avs_tools/pre_mask2rgb/mask_precess_s4.py --split test
 ```
 
 - Move Maskiges to the following folder
-  Note: For convenience, we provide pre-generated Maskiges for S4\MS3\AVSS subset on the [YannQi/COMBO-AVS-checkpoints · Hugging Face](https://huggingface.co/YannQi/COMBO-AVS-checkpoints).
+  Note: For convenience, the pre-generated Maskiges for S4\MS3\AVSS subset can be obtained at [YannQi/COMBO-AVS-checkpoints · Hugging Face](https://huggingface.co/YannQi/COMBO-AVS-checkpoints).
 
 The file tree shall look like:
 ```
@@ -148,7 +148,19 @@ The file tree shall look like:
 ```
 
 ## Train and Test
-The commands for training and testing are put under `./scripts`.
+To record the training epoch wherein the model achieves the best performance, we add several lines of codes in the `conda_envs/xxx/lib/python3.xx/site-packages/detectron2/engine/hooks.py`.
+The codes are located in the function named `after_step` (lines 547–560), as shown below:
+```
+def after_step(self):
+        next_iter = self.trainer.iter + 1
+        if self._period > 0 and next_iter % self._period == 0 :
+            with open ('iter.txt', 'w') as f:
+                f.write(str(self.trainer.iter))
+                f.close()
+            if next_iter != self.trainer.max_iter:
+                self._do_eval()
+```
+The you can start to train and test. The scripts for training and testing are put under `./scripts`.
 ### 1. Train
 
 ```shell
