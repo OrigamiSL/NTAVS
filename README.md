@@ -136,28 +136,3 @@ sh scripts/res_test_avs4.sh # or ms3, avss
 sh scripts/pvt_test_avs4.sh # or ms3, avss
 ```
 
-### 7. Results and Download Links
-
-We provide the checkpoints of the S4 Subset at [YannQi/COMBO-AVS-checkpoints · Hugging Face](https://huggingface.co/YannQi/COMBO-AVS-checkpoints).
-
-|   Method   | Backbone | Subset |                      Config                      | mIoU | F-score |
-| :---------: | :-------: | :----: | :-----------------------------------------------: | :--: | :-----: |
-|  COMBO-R50  | ResNet-50 |   S4   |   [config](configs/avs_s4/COMBO_R50_bs8_90k.yaml)   | 81.7 |  90.1  |
-| COMBO-PVTv2 | PVTv2-B5 |   S4   | [config](configs/avs_s4/COMBO_PVTV2B5_bs8_90k.yaml) | 84.7 |  91.9  |
-|  COMBO-R50  | ResNet-50 |  MS3  |   [config](configs/avs_ms3/COMBO_R50_bs8_20k.yaml)   | 54.5 |  66.6  |
-| COMBO-PVTv2 | PVTv2-B5 |  MS3  | [config](configs/avs_ms3/COMBO_PVTV2B5_bs8_20k.yaml) | 59.2 |  71.2  |
-|  COMBO-R50  | ResNet-50 |  AVSS  |   [config](configs/avs_ss/COMBO_R50_bs8_90k.yaml)   | 33.3 |  37.3  |
-| COMBO-PVTv2 | PVTv2-B5 |  AVSS  | [config](configs/avs_ss/COMBO_PVTV2B5_bs8_90k.yaml) | 42.1 |  46.1  |
-
-## 🤝 Citing COMBO
-
-```
-@misc{yang2023cooperation,
-      title={Cooperation Does Matter: Exploring Multi-Order Bilateral Relations for Audio-Visual Segmentation},
-      author={Qi Yang and Xing Nie and Tong Li and Pengfei Gao and Ying Guo and Cheng Zhen and Pengfei Yan and Shiming Xiang},
-      year={2023},
-      eprint={2312.06462},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
