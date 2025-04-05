@@ -3,9 +3,9 @@ This repository provides the PyTorch implementation for the paper "Nontrivial Au
 
 ## Method
 <p align="center">
-  <img  src="figures/Architecture.png">
+  <img  src="image/framework.jpg">
 
-<h6 align="center">Overview of the proposed COMBO.</h6>
+<h6 align="center">Overview of the proposed NTAVS.</h6>
 </p>
 
 ## Getting Started
