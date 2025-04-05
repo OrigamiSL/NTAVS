@@ -181,3 +181,15 @@ sh scripts/pvt_test_avms3.sh
 sh scripts/pvt_test_avss.sh
 ```
 
+## Acknowledgement
+
+This codebase is implemented on the following project. We really appreciate its authors for the open-source works!
+- [COMBO](https://github.com/yannqi/COMBO-AVS) [[related paper](https://arxiv.org/pdf/2312.06462)]
+
+
+**This project is not for commercial use. For commercial use, please contact the author.**
+
+## Citation
+
+If any part of our work helps your research, please consider citing us and giving a star to our repository.
+
