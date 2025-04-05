@@ -160,7 +160,7 @@ def after_step(self):
             if next_iter != self.trainer.max_iter:
                 self._do_eval()
 ```
-The you can start to train and test. The scripts for training and testing are put under `./scripts`.
+Then you can start to train and test. The scripts for training and testing are put under `./scripts`.
 ### 1. Train
 
 ```shell
