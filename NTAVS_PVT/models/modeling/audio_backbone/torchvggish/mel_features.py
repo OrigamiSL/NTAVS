@@ -84,7 +84,7 @@ def stft_magnitude(signal, fft_length, hop_length=None, window_length=None):
       unique values of the FFT for the corresponding frame of input samples.
     """
     frames = frame(signal, window_length, hop_length) # 512/400, 160
-    print('frames', frames.shape)
+
     # Apply frame window to each frame. We use a periodic Hann (cosine of period
     # window_length) instead of the symmetric Hann of np.hanning (period
     # window_length-1).
@@ -92,8 +92,7 @@ def stft_magnitude(signal, fft_length, hop_length=None, window_length=None):
     window = periodic_hann(window_length)
     windowed_frames = frames * window
 
-    # windowed_frames = frames
-    print('windowed_frames', windowed_frames.shape)
+
     return np.abs(np.fft.rfft(windowed_frames, int(fft_length)))
 
 # Mel spectrum constants and functions.
