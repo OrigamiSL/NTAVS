@@ -1,37 +1,14 @@
-<p align="center">
-  <img width="320" height="320" src="figures/COMBO_logo.png">
+## NTAVS
+This repository provides the PyTorch implementation for the paper "Nontrivial Audio-Visual Segmentation", which is submitted to Knowledge-Based Systems (KBS).
 
-<h1 align="center">COMBO-AVS</h1>
-</p>
-
-# [Cooperation Does Matter: Exploring Multi-Order Bilateral Relations for Audio-Visual Segmentation](https://yannqi.github.io/AVS-COMBO/)
-
-[Qi Yang](https://yannqi.github.io/), Xing Nie, Tong Li, Pengfei Gao, Ying Guo, Cheng Zhen, Pengfei Yan and [Shiming Xiang](https://people.ucas.ac.cn/~xiangshiming)
-
-This repository provides the PyTorch implementation for the paper "Cooperation Does Matter: Exploring Multi-Order Bilateral Relations for Audio-Visual Segmentation" accepted by CVPR 2024 (Highlight).
-
-## 🔥What's New
-
-- (2024. 4.06) Our paper(COMBO) is marked as Highlight Paper! 😮
-- (2024. 3.19) Our checkpoints are available to the public, looking from [YannQi/COMBO-AVS-checkpoints · Hugging Face](https://huggingface.co/YannQi/COMBO-AVS-checkpoints)!
-- (2024. 3.14) Our code is available to the public in $\pi$ day!
-- (2024. 3.12) Our code is ready to share for the public 🌲🌲🌲!
-- (2024. 2.27) Our paper(COMBO) is accepted by CVPR 2024!
-- (2023.11.17) We completed the implemention of COMBO and push the code.
-
-## 🪵 TODO List
-
-- [X] Upload the pre-masks and the checkpoints at the [YannQi/COMBO-AVS-checkpoints · Hugging Face](https://huggingface.co/YannQi/COMBO-AVS-checkpoints)!
-
-## 📚Method
-
+## Method
 <p align="center">
   <img  src="figures/Architecture.png">
 
 <h6 align="center">Overview of the proposed COMBO.</h6>
 </p>
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### 1. Environments
 
