@@ -12,6 +12,14 @@ In mathematics, the adjective `trivial' is frequently used to refer to an object
 </p>
 
 ## Preparation
+This work contains two versions, i.e., NTAVS-PVT and NTAVS-R50, which employ two different visual backbones. We implement the two verisions in the `./NTAVS_PVT` and `./NTAVS_R50`, respectively. For loading the datasets and pretrained weights conviently, you can run the script below to creat symbolic links for the `./NTAVS_PVT` and `./NTAVS_R50` folders. 
+```
+sh ./creat_symbolic_link.sh
+```
+You can choose both or one of them to train and test. Take the NTAVS-PVT as example, you should firstly run the command:
+```
+cd ./NTAVS_PVT
+```
 We follow [COMBO](https://yannqi.github.io/AVS-COMBO) to finish the preparation before training and testing the models. The details are as follows:
 
 ### 1. Environments
@@ -21,11 +29,12 @@ We follow [COMBO](https://yannqi.github.io/AVS-COMBO) to finish the preparation 
 ```shell
 # creat the conda environment
 conda env create -f NTAVS.yaml
+# activate
+conda activate NTAVS
 # build MSDeformAttention
 cd models/modeling/pixel_decoder/ops
 sh make.sh
 ```
-
 - Preprocessing for detectron2
 
   For using Siam-Encoder Module (SEM), we refine 1-line code of the detectron2.
@@ -54,7 +63,7 @@ Find out more at [Semantic-SAM](https://github.com/UX-Decoder/Semantic-SAM)
 
 ### 2. Datasets
 
-Please refer to the link [AVSBenchmark](https://github.com/OpenNLPLab/AVSBench) to download the datasets. You need to put the data under the `./AVS_dataset`. The folder tree shall look like:
+Please refer to the link [AVSBenchmark](https://github.com/OpenNLPLab/AVSBench) to download the datasets. You need to put the data under the `../AVS_dataset`. The folder tree shall look like:
 
 ```
 |--AVS_dataset
@@ -70,12 +79,13 @@ python3 avs_tools/preprocess_avss_audio.py
 python3 avs_tools/process_avssimg2fixsize.py
 ```
 
+
 ### 3. Download Pre-Trained Models
 
 - The pretrained visual backbone (ResNet-50 and PVT-v2) is available from benchmark AVSBench pretrained backbones [YannQi/COMBO-AVS-checkpoints · Hugging Face](https://huggingface.co/YannQi/COMBO-AVS-checkpoints).
 - The pretrained acoustic backbone (CED-Mini) is available from [CED-Mini](https://huggingface.co/mispeech/ced-mini).
 
-After you finish downloading, put the weights under the `./pretrained`. 
+After you finish downloading, put the weights under the `../pretrained`. 
 
 ```
 |--pretrained
