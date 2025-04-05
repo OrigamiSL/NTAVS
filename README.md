@@ -12,7 +12,7 @@ In mathematics, the adjective `trivial' is frequently used to refer to an object
 </p>
 
 ## Preparation
-This work contains two versions, i.e., NTAVS-PVT and NTAVS-R50, which employ two different visual backbones. We implement the two verisions in the `./NTAVS_PVT` and `./NTAVS_R50`, respectively. For loading the datasets and pretrained weights conviently, you can run the script below to creat symbolic links for the `./NTAVS_PVT` and `./NTAVS_R50` folders. 
+This work contains two versions, i.e., NTAVS-PVT and NTAVS-R50, which employ two different visual backbones. We implement the two verisions in the `./NTAVS_PVT` and `./NTAVS_R50`, respectively. For loading the datasets and the pretrained weights conviently, you can run the script below to creat symbolic links for the `./NTAVS_PVT` and `./NTAVS_R50` folders. 
 ```
 sh ./creat_symbolic_link.sh
 ```
@@ -78,7 +78,31 @@ Then run the scripts below to preprocess the AVSS dataset for efficient training
 python3 avs_tools/preprocess_avss_audio.py
 python3 avs_tools/process_avssimg2fixsize.py
 ```
-
+To generate the proposed MSAI in this work, you should run the scripts below:
+```
+python ./avs_tools/preprocess_avss_audio.py  # for AVSS dataset
+python ./avs_tools/preprocess_s3_audio.py # for MS3 dataset
+python ./avs_tools/preprocess_s4_audio.py # for S4 dataset
+```
+Then you can obtain the file tree:
+```
+|--AVS_dataset
+     |--AVSBench_object/Multi-sources/ms3_data
+       |--audio_wav_256_96_new_scale
+       |--audio_wav_512_96_new_scale
+       |--audio_wav_1024_96_new_scale
+    |--AVSBench_object/Single-source/s4_data
+       |--audio_wav_256_96_new_scale
+       |--audio_wav_512_96_new_scale
+       |--audio_wav_1024_96_new_scale
+    |--AVSBench_semantic
+       |--v1m
+          |--_19NVGk6Zt8_0
+             |--audio_wav_256_96_new_scale.pkl
+             |--audio_wav_512_96_new_scale.pkl
+             |--audio_wav_1024_96_new_scale.pkl
+    ...
+```
 
 ### 3. Download Pre-Trained Models
 
@@ -115,6 +139,7 @@ python3 avs_tools/pre_mask2rgb/mask_precess_s4.py --split test
 - Move Maskiges to the following folder
   Note: For convenience, we provide pre-generated Maskiges for S4\MS3\AVSS subset on the [YannQi/COMBO-AVS-checkpoints · Hugging Face](https://huggingface.co/YannQi/COMBO-AVS-checkpoints).
 
+The file tree shall look like:
 ```
 |--AVS_dataset
     |--AVSBench_semantic/pre_SAM_mask/
@@ -122,27 +147,37 @@ python3 avs_tools/pre_mask2rgb/mask_precess_s4.py --split test
     |--AVSBench_object/Single-source/s4_data/pre_SAM_mask/
 ```
 
-### 5. Train
+## Train and Test
+The commands for training and testing are put under `./scripts`.
+### 1. Train
 
 ```shell
-# ResNet-50
-sh scripts/res_train_avs4.sh # or ms3, avss
+# ResNet-50 (Attention! The scripts below are under `./NTAVS_R50` folder.)
+sh scripts/res_train_avs4.sh
+sh scripts/res_train_avms3.sh
+sh scripts/res_train_avss.sh
 ```
 
 ```shell
-# PVTv2
-sh scripts/pvt_train_avs4.sh # or ms3, avss
+# PVTv2 (Attention! The scripts below are under `./NTAVS_PVT` folder.)
+sh scripts/pvt_train_avs4.sh
+sh scripts/pvt_train_avms3.sh
+sh scripts/pvt_train_avss.sh
 ```
 
-### 6. Test
-
+### 2. Test
+After you finish the training process, you can evaluate the best checkpoints by the commands below:
 ```shell
-# ResNet-50
-sh scripts/res_test_avs4.sh # or ms3, avss
+# ResNet-50 (Attention! The scripts below are under `./NTAVS_R50` folder.)
+sh scripts/res_test_avs4.sh
+sh scripts/res_test_avms3.sh
+sh scripts/res_test_avss.sh
 ```
 
 ```shell
-# PVTv2
-sh scripts/pvt_test_avs4.sh # or ms3, avss
+# PVTv2 (Attention! The scripts below are under `./NTAVS_PVT` folder.)
+sh scripts/pvt_test_avs4.sh
+sh scripts/pvt_test_avms3.sh
+sh scripts/pvt_test_avss.sh
 ```
 
