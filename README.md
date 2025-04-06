@@ -12,7 +12,7 @@ In mathematics, the adjective `trivial' is frequently used to refer to an object
 </p>
 
 ## Preparation
-This work contains two versions, i.e., NTAVS-PVT and NTAVS-R50, which employ two different visual backbones. We implement the two verisions in the `./NTAVS_PVT` and `./NTAVS_R50`, respectively. For loading the datasets and the pretrained weights conviently, you can run the script below to creat symbolic links for the `./NTAVS_PVT` and `./NTAVS_R50` folders. 
+This work contains two versions, i.e., NTAVS-PVT and NTAVS-R50, which employ two different visual backbones. We implement the two verisions in the `./NTAVS_PVT` and `./NTAVS_R50`, respectively. For loading the datasets and the pretrained weights conveniently, you can run the script below to creat symbolic links for the `./NTAVS_PVT` and `./NTAVS_R50` folders. 
 ```
 sh ./creat_symbolic_link.sh
 ```
@@ -137,6 +137,7 @@ python3 avs_tools/pre_mask2rgb/mask_precess_s4.py --split test
 ```
 
 - Move Maskiges to the following folder
+  
   Note: For convenience, the pre-generated Maskiges for S4\MS3\AVSS subset can be obtained at [YannQi/COMBO-AVS-checkpoints · Hugging Face](https://huggingface.co/YannQi/COMBO-AVS-checkpoints).
 
 The file tree shall look like:
