@@ -148,7 +148,7 @@ The file tree shall look like:
 ```
 
 ## Train and Test
-To record the training epoch wherein the model achieves the best performance, we add several lines of codes in the `conda_envs/xxx/lib/python3.xx/site-packages/detectron2/engine/hooks.py`.
+To record the training iteration, we add several lines of codes in the `conda_envs/xxx/lib/python3.xx/site-packages/detectron2/engine/hooks.py`.
 The codes are located in the function named `after_step` (lines 547–560), as shown below:
 ```
 def after_step(self):
