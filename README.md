@@ -80,7 +80,6 @@ python3 avs_tools/process_avssimg2fixsize.py
 ```
 To generate the proposed MSAI in this work, you should run the scripts below:
 ```
-python ./avs_tools/preprocess_avss_audio.py  # for AVSS dataset
 python ./avs_tools/preprocess_s3_audio.py # for MS3 dataset
 python ./avs_tools/preprocess_s4_audio.py # for S4 dataset
 ```
